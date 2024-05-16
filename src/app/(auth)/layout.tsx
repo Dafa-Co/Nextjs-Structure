@@ -1,15 +1,19 @@
-import { layouts_transition_default } from "@/constants";
+import {ReactNode} from "react";
 
-import Transition from "@/app/Transition";
+import AuthJourneyProvider from "./auth/providers/authJourneyProvider";
+
+import DefaultLayout from "./auth/layouts/defaultLayout";
 
 type Props = {
-  children: React.ReactNode;
+  children: ReactNode;
 };
 
-export default function AuthLayout({ children }: Props) {
+export default function AuthLayout({children}: Props) {
   return (
-    <Transition options={layouts_transition_default}>
-      <main className="grid grid-cols-1 lg:grid-cols-2">{children}</main>
-    </Transition>
+    <AuthJourneyProvider>
+      <section className='relative min-h-screen overflow-hidden flex flex-col'>
+        <DefaultLayout>{children}</DefaultLayout>
+      </section>
+    </AuthJourneyProvider>
   );
 }
