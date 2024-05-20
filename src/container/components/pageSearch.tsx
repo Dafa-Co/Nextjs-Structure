@@ -10,14 +10,14 @@ import SearchIcon from "./icons/searchIcon";
 
 import useUrlSearchParams from "@/container/hooks/useUrlSearchParams";
 
-import {debounceTimeOut, EnumMetaParams} from "@/container/constants";
+import {debounceTimeOut, metaParams} from "@/container/constants";
 
 type Props = {};
 
 export default function PageSearch({}: Props) {
   const {searchParams, setSearchParmas} = useUrlSearchParams();
 
-  const searchParamValue = searchParams.get(EnumMetaParams.search) || "";
+  const searchParamValue = searchParams.get(metaParams.search) || "";
 
   const [searchValue, setSearchValue] = useState(searchParamValue);
 
@@ -31,7 +31,7 @@ export default function PageSearch({}: Props) {
 
     debounceTimer = setTimeout(() => {
       setSearchParmas({
-        searchParams: [{key: EnumMetaParams.search, value: val}],
+        searchParams: [{key: metaParams.search, value: val}],
       });
     }, debounceTimeOut);
   };

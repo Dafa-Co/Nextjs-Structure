@@ -18,3 +18,9 @@ export const modalTypes: Record<EnumModalTypes, EnumModalTypes> = {
   confirmation: "confirmation" as EnumModalTypes.confirmation,
   layout: "layout" as EnumModalTypes.layout,
 };
+
+export const metaParams: Record<EnumMetaParams, EnumMetaParams> = {
+  page: "page" as EnumMetaParams.page,
+  take: "take" as EnumMetaParams.take,
+  search: "search" as EnumMetaParams.search,
+};
