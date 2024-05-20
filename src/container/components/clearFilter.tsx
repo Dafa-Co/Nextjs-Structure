@@ -1,6 +1,6 @@
 "use client";
 
-import {EnumMetaParams} from "@/container/constants";
+import {metaParams} from "@/container/constants";
 
 import useUrlSearchParams from "@/container/hooks/useUrlSearchParams";
 
@@ -11,11 +11,11 @@ type Props = {};
 export default function ClearFilter({}: Props) {
   const {searchParams, removeSearchParmas} = useUrlSearchParams();
 
-  const isSearch = searchParams.has(EnumMetaParams.search);
+  const isSearch = searchParams.has(metaParams.search);
 
-  const isTake = searchParams.has(EnumMetaParams.take);
+  const isTake = searchParams.has(metaParams.take);
 
-  const isPage = searchParams.has(EnumMetaParams.page);
+  const isPage = searchParams.has(metaParams.page);
 
   return isSearch || isTake || isPage ? (
     <button
@@ -23,7 +23,7 @@ export default function ClearFilter({}: Props) {
       className='link-primary flex items-center gap-0.5rem'
       onClick={() => {
         removeSearchParmas({
-          searchParams: [EnumMetaParams.search, EnumMetaParams.take, EnumMetaParams.page],
+          searchParams: [metaParams.search, metaParams.take, metaParams.page],
         });
       }}
     >
